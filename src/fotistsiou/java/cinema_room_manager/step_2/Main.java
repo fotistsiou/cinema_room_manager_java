@@ -32,19 +32,21 @@ public class Main {
         System.out.println("Enter the number of seats in each row:");
         int seats = scanner.nextInt();
 
-        long totalSeats = (long) rows * seats;
-        long income;
-        if (totalSeats <= 60) {
-            income = totalSeats * 10;
-        } else {
-            int firstRows = rows / 2;
-            int secondRows = rows - firstRows;
-            income = (firstRows * seats * 10L) + (secondRows * seats * 8L);
-        }
+        int income = calculateIncome(rows, seats);
 
         System.out.println("Total income:");
         System.out.println("$" + income);
-        
+
         scanner.close();
+    }
+
+    static int calculateIncome(int rows, int seats) {
+        int totalSeats = rows * seats;
+        if (totalSeats <= 60) {
+            return totalSeats * 10;
+        }
+        int firstRows = rows / 2;
+        int secondRows = rows - firstRows;
+        return (firstRows * seats * 10) + (secondRows * seats * 8);
     }
 }
