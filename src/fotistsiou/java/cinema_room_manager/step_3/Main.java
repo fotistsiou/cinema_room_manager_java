@@ -1,5 +1,7 @@
 package fotistsiou.java.cinema_room_manager.step_3;
 
+import java.util.Scanner;
+
 /**
  * Set the ticket price
  * --------------------
@@ -22,4 +24,76 @@ package fotistsiou.java.cinema_room_manager.step_3;
  */
 
 public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the rows and seats and create the cinema
+        System.out.println("Enter the number of rows:");
+        int rows = scanner.nextInt();
+        System.out.println("Enter the number of seats in each row:");
+        int seats = scanner.nextInt();
+        String title = "Cinema";
+        char[][] cinema = new char[rows][seats];
+        initSeats(cinema);
+
+        // Print the initial scheme of the cinema
+        System.out.println(title + ":");
+        printSeatsNumbers(seats);
+        printCinemaGrid(cinema, rows, seats);
+
+        // Read a specific seat
+        System.out.println("Enter a row number:");
+        int row = scanner.nextInt();
+        System.out.println("Enter a seat number in that row:");
+        int seat = scanner.nextInt();
+
+        // Calculate and print ticket price
+        String ticketPrice = calculateTicketPrice(rows, seats, row);
+        System.out.println("Ticket price: " + ticketPrice);
+
+        // Hold the seat and print the new scheme of the cinema
+        holdSeat(cinema, row, seat);
+        System.out.println(title + ":");
+        printSeatsNumbers(seats);
+        printCinemaGrid(cinema, rows, seats);
+
+        scanner.close();
+    }
+
+    static void initSeats(char[][] cinema) {
+        for (char[] seats : cinema) {
+            java.util.Arrays.fill(seats, 'S');
+        }
+    }
+
+    static void printSeatsNumbers(int seats) {
+        System.out.print("  ");
+        for (int i = 1; i <= seats; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    static void printCinemaGrid(char[][] cinema, int rows, int seats) {
+        for (int i = 0; i < rows; i++) {
+            System.out.print((i + 1) + " ");
+            for (int j = 0; j < seats; j++) {
+                System.out.print(cinema[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static String calculateTicketPrice(int rows, int seats, int row) {
+        int totalSeats = rows * seats;
+        int firstRows = rows / 2;
+        return totalSeats <= 60
+                ? "$10" : row <= firstRows
+                ? "$10" : "$8";
+    }
+
+    static void holdSeat(char[][] cinema, int row, int seat) {
+        cinema[row-1][seat-1] = 'B';
+    }
 }
