@@ -23,31 +23,31 @@ public class Main {
 
     public static void main(String[] args) {
         String title = "Cinema";
-        int row = 7;
-        int col = 8;
-        char[][] cinema = new char[row][col];
+        int rows = 7;
+        int seats = 8;
+        char[][] cinema = new char[rows][seats];
 
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i < rows; i++) {
             java.util.Arrays.fill(cinema[i], 'S');
         }
 
         System.out.println(title + ":");
-        printColumnNumbers(col);
-        printCinemaGrid(cinema, row, col);
+        printSeatsNumbers(seats);
+        printCinemaGrid(cinema, rows, seats);
     }
 
-    private static void printColumnNumbers(int col) {
+    static void printSeatsNumbers(int seats) {
         System.out.print("  ");
-        for (int i = 1; i <= col; i++) {
+        for (int i = 1; i <= seats; i++) {
             System.out.print(i + " ");
         }
         System.out.println();
     }
 
-    private static void printCinemaGrid(char[][] cinema, int row, int col) {
-        for (int i = 0; i < row; i++) {
+    static void printCinemaGrid(char[][] cinema, int rows, int seats) {
+        for (int i = 0; i < rows; i++) {
             System.out.print((i + 1) + " ");
-            for (int j = 0; j < col; j++) {
+            for (int j = 0; j < seats; j++) {
                 System.out.print(cinema[i][j] + " ");
             }
             System.out.println();
