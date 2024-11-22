@@ -1,5 +1,7 @@
 package fotistsiou.java.cinema_room_manager.step_2;
 
+import java.util.Scanner;
+
 /**
  * Calculate the profit
  * --------------------
@@ -21,4 +23,28 @@ package fotistsiou.java.cinema_room_manager.step_2;
  */
 
 public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the number of rows:");
+        int rows = scanner.nextInt();
+        System.out.println("Enter the number of seats in each row:");
+        int seats = scanner.nextInt();
+
+        long totalSeats = (long) rows * seats;
+        long income;
+        if (totalSeats <= 60) {
+            income = totalSeats * 10;
+        } else {
+            int firstRows = rows / 2;
+            int secondRows = rows - firstRows;
+            income = (firstRows * seats * 10L) + (secondRows * seats * 8L);
+        }
+
+        System.out.println("Total income:");
+        System.out.println("$" + income);
+        
+        scanner.close();
+    }
 }
