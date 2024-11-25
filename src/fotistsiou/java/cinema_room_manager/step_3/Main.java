@@ -39,8 +39,7 @@ public class Main {
 
         // Print the initial scheme of the cinema
         System.out.println(title + ":");
-        printSeatsNumbers(seats);
-        printCinemaGrid(cinema, rows, seats);
+        printCinemaGrid(cinema);
 
         // Read a specific seat
         System.out.println("Enter a row number:");
@@ -55,8 +54,7 @@ public class Main {
         // Hold the seat and print the new scheme of the cinema
         holdSeat(cinema, row, seat);
         System.out.println(title + ":");
-        printSeatsNumbers(seats);
-        printCinemaGrid(cinema, rows, seats);
+        printCinemaGrid(cinema);
 
         scanner.close();
     }
@@ -75,10 +73,11 @@ public class Main {
         System.out.println();
     }
 
-    static void printCinemaGrid(char[][] cinema, int rows, int seats) {
-        for (int i = 0; i < rows; i++) {
+    static void printCinemaGrid(char[][] cinema) {
+        printSeatsNumbers(cinema[0].length);
+        for (int i = 0; i < cinema.length; i++) {
             System.out.print((i + 1) + " ");
-            for (int j = 0; j < seats; j++) {
+            for (int j = 0; j < cinema[i].length; j++) {
                 System.out.print(cinema[i][j] + " ");
             }
             System.out.println();
