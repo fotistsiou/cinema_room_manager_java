@@ -46,14 +46,20 @@ to get it built. Here’s what awaits you:
     - Type casting
     - Calling methods
     - One-line condition with ternary operator
-    - While and do-while loops
     - For loop
+    - While and do-while loops
     - Break and continue. Branching
     - Primitive and reference types
     - Array
     - Iterating over arrays
     - Characters
+    - IDE
+    - What are bugs
     - Multidimensional array
+    - Debugging overview
+    - IntelliJ IDEA
+    - Run and debug with IntelliJ IDEA
+    - Debugging simple constructs
 - Stage 4/5: Add menu to your application
   - Add a menu that allows you to buy tickets and display the current state of the seating arrangement.
   - Stage Topics:
